@@ -1,0 +1,30 @@
+{
+  "name": "spacehipster",
+  "version": "0.5.0",
+  "description": "Simple game made with Phaser game engine. Targeted at mobile and web development using same code base.",
+  "private": true,
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EnergeticPixels/SpaceHipster.gi"
+  },
+  "bugs": {
+    "url": "https://github.com/EnergeticPixels/SpaceHipster/issues"
+  },
+  "homepage": "https://github.com/EnergeticPixels/SpaceHipster#readme",
+  "keywords": [
+    "phaser",
+    "space",
+    "hipster",
+    "simple",
+    "intel xdk",
+    "space invaders",
+    "particle explosions",
+    "game"
+  ],
+  "author": "Anthony Jackman <energeticpixels@gmail.com>",
+  "license": "BSD-3-Clause"
+}

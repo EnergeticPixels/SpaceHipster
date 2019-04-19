@@ -49,6 +49,7 @@ SpaceHipster.GameState = {
     update: function() {
 
         this.game.physics.arcade.overlap(this.playerBullets, this.enemies, this.damageEnemy, null, this);
+        this.game.physics.arcade.overlap(this.enemyBullets, this.player, this.killPlayer, null, this);
 
         // player not moving by default
         this.player.body.velocity.x = 0;
@@ -100,6 +101,11 @@ SpaceHipster.GameState = {
     damageEnemy: function(bullet, enemy) {
         enemy.damage(1);
         bullet.kill();
+    },
+
+    killPlayer: function() {
+        this.player.kill();
+        this.game.state.start('GameState');
     }
 
 

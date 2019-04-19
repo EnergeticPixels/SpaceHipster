@@ -35,6 +35,10 @@ SpaceHipster.GameState = {
         this.game.physics.arcade.enable(this.player);
         this.player.body.collideWorldBounds = true;
 
+        // bullets
+        this.initBullets();
+        this.shootingTimer = this.game.time.events.loop(Phaser.Timer.SECONDS/5, this.createPlayerBullet, this);
+
     },
 
     // dynamically update
@@ -48,6 +52,23 @@ SpaceHipster.GameState = {
 
             this.player.body.velocity.x = direction * this.PLAYER_SPEED;
         }
+    },
+
+    initBullets: function() {
+        this.playerBullets = this.add.group();
+        this.playerBullets.enableBody = true;
+    },
+
+    createPlayerBullet: function() {
+        var bullet = this.playerBullets.getFirstExists(false);
+
+        if(!bullet) {
+            console.log('created bullet');
+        } else {
+            // reset position
+        };
+        // set velocity
+
     }
 
 }

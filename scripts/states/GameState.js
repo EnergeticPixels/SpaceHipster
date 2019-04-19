@@ -88,7 +88,10 @@ SpaceHipster.GameState = {
         this.enemies = this.add.group();
         this.enemies.enableBody = true;
 
-        var enemy = new SpaceHipster.Enemy(this.game, 100, 100, 'greenEnemy', 10, []);
+        this.enemyBullets = this.add.group();
+        this.enemyBullets.enableBody = true;
+
+        var enemy = new SpaceHipster.Enemy(this.game, 100, 100, 'greenEnemy', 10, this.enemyBullets);
         this.enemies.add(enemy);
         enemy.body.velocity.x = 100;
         enemy.body.velocity.y = 50;

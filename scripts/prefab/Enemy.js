@@ -5,7 +5,10 @@ SpaceHipster.Enemy = function(game, x, y, key, health, enemyBullets) {
 
   this.game = game;
 
-  this.game.physics.arcade.enable(this);
+  // bug in phaser 2.6.2 about physics being applied 
+  // to both group and individual element. may need to 
+  // investigate when updating game engine
+  //this.game.physics.arcade.enable(this);
   
   this.animations.add('getHit', [0, 1, 2, 1, 0], 25, false);
   this.anchor.setTo(0.5);
@@ -30,4 +33,11 @@ SpaceHipster.Enemy.prototype.update = function() {
   if(this.position.y > this.game.world.height) {
     this.kill();
   }
-}
+};
+
+SpaceHipster.Enemy.prototype.damage = function(amount) {
+  Phaser.Sprite.prototype.damage.call(this, amount);
+  
+  this.play('getHit');
+
+};

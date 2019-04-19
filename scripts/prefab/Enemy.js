@@ -40,4 +40,15 @@ SpaceHipster.Enemy.prototype.damage = function(amount) {
   
   this.play('getHit');
 
+  // particle explosion
+  if(this.health <= 0) {
+    console.log('explosion');
+    var emitter = this.game.add.emitter(this.x, this.y, 250);
+    emitter.makeParticles('enemyParticle');
+    emitter.minParticleSpeed.setTo(-200, -200);
+    emitter.maxParticleSpeed.setTo(200, 200);
+    emitter.gravity = 0;
+    emitter.start(true, 750, null, 250);
+  }
+
 };

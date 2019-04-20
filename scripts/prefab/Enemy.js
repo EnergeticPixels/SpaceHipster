@@ -54,17 +54,21 @@ SpaceHipster.Enemy.prototype.damage = function(amount) {
     emitter.maxParticleSpeed.setTo(200, 200);
     emitter.gravity = 0;
     emitter.start(true, 750, null, 250);
+
+    this.enemyTimer.pause();
   }
 
 };
 
 SpaceHipster.Enemy.prototype.reset = function(x, y, health, key, scale, speedX, speedY) {
-  Phaser.Sprite.prototype.reset.call(this, x, y,health);
+  Phaser.Sprite.prototype.reset.call(this, x, y, health);
 
   this.loadTexture(key);
   this.scale.setTo(scale);
   this.body.velocity.x = speedX;
   this.body.velocity.y = speedY;
+
+  this.enemyTimer.resume();
 
 };
 
